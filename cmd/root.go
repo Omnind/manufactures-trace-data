@@ -40,6 +40,8 @@ var (
 		// output file path is the path to the output file that we will write.
 		ouputFilePath string
 		// debug mode is a flag that will enable debug mode.
+
+		wtime string
 		debug bool
 	}
 )
@@ -82,6 +84,8 @@ func init() {
 
 func printGreeting() {
 	fmt.Println(greetingBanner)
+	fmt.Println("Please enter the date: ")
+	fmt.Scanln(&flags.wtime)
 }
 
 func start() {
@@ -136,7 +140,7 @@ func start() {
 	// Run map-reduce
 	master := worker.NewDefaultMaster()
 	items := flattenItemMap(itemMap)
-	result := master.Run(items, config.StepOrder, 24, 7)
+	result := master.Run(items, config.StepOrder, 1, 2399)
 	// Write result to file.
 	if err := writeResult(result, config.StepOrder, flags.ouputFilePath); err != nil {
 		logger.Error("Failed to write result to file", zap.Error(err))
@@ -167,10 +171,19 @@ func writeResult(resultSet *worker.ResultSet, fullStepOrdering []string, outputF
 	// ProjectCode,FromStep,ToStep,1,2,3,4,5,6,7,> 7
 	// We write the header first.
 	header := []string{
-		"ProjectCode", "FromStep", "ToStep", "Status",
-		"1-Days", "2-Days", "3-Days",
-		"4-Days", "5-Days", "6-Days",
-		"7-Days", ">7-Days",
+		"LOB", "Project", "Part", "Vendor", "Date",
+		"Start Station", "End Station",
+		"Status",
+		"Min", "10th Percentile", "25th Percentile", "50th Percentile",
+		"75th Percentile", "90th Percentile", "Max",
+		"Parts", "Average",
+		//"1D 1 time NG", "2D 1 time NG", "3D 1 time NG", "4D 1 time NG", "5D 1 time NG", "6D 1 time NG", "7D 1 time NG", ">7D 1 time NG",
+		//"1D >1 time NG", "2D >1 time NG", "3D >1 time NG", "4D >1 time NG", "5D >1 time NG", "6D >1 time NG", "7D >1 time NG", ">7D >1 time NG",
+	}
+	for i := 1; i <= 2400; i++ {
+		s := strconv.Itoa(i)
+		//m := "," + s
+		header = append(header, s)
 	}
 
 	if err := writer.Write(header); err != nil {
@@ -183,10 +196,23 @@ func writeResult(resultSet *worker.ResultSet, fullStepOrdering []string, outputF
 			passTimeSpentIntervals := resultSet.PassStepsTimeNumber[fromStep][toStep]
 			row := make([]string, 0, len(header))
 			//TODO(zp): make projectCode configurable.
+			row = append(row, "Watch")
 			row = append(row, "N199")
+			row = append(row, "HSG")
+			row = append(row, "LF")
+			row = append(row, flags.wtime) //flags.wtime
 			row = append(row, fromStep)
-			row = append(row, toStep)
+			row = append(row, toStep) //toStep
 			row = append(row, "passed")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
 			for _, interval := range passTimeSpentIntervals {
 				row = append(row, strconv.Itoa(interval))
 			}
@@ -196,13 +222,29 @@ func writeResult(resultSet *worker.ResultSet, fullStepOrdering []string, outputF
 			failTimeSpentIntervals := resultSet.FailStepsTimeNumber[fromStep][toStep]
 			row = make([]string, 0, len(header))
 			//TODO(zp): make projectCode configurable.
+			row = append(row, "Watch")
 			row = append(row, "N199")
+			row = append(row, "HSG")
+			row = append(row, "LF")
+			row = append(row, flags.wtime) //flags.wtime
 			row = append(row, fromStep)
-			row = append(row, toStep)
+			row = append(row, toStep) //toStep
 			row = append(row, "failed")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
+			row = append(row, "0")
 			for _, interval := range failTimeSpentIntervals {
 				row = append(row, strconv.Itoa(interval))
 			}
+			//for i := 1; i < 17; i++ {
+			//	row = append(row, "0")
+			//}
 			if err := writer.Write(row); err != nil {
 				return err
 			}

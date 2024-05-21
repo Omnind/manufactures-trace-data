@@ -1,7 +1,7 @@
 {
     "StepMeta":[
             {
-                "FullStepName": "CNC Input",
+                "FullStepName": "1.CNC Input",
                 "ShortStepName": "cnc-in",
                 "StepOrder": 1,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_cnc-in_2022-06-20_2022-10-20.csv",
@@ -10,7 +10,7 @@
                 "StopTimeColumnName":"cnc-in.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "EPIC Treatment",
+                "FullStepName": "2.EPIC Treatment",
                 "ShortStepName": "epic",
                 "StepOrder": 2,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_epic_2022-06-20_2022-10-20.csv",
@@ -19,7 +19,7 @@
                 "StopTimeColumnName":"epic.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "Insert Molding",
+                "FullStepName": "3.Insert Molding",
                 "ShortStepName": "insert",
                 "StepOrder": 3,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_im_2022-06-20_2022-10-20.csv",
@@ -28,7 +28,7 @@
                 "StopTimeColumnName":"im.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "Epoxy",
+                "FullStepName": "4.Epoxy",
                 "ShortStepName": "epoxy",
                 "StepOrder": 4,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_epoxy_2022-06-20_2022-10-20.csv",
@@ -37,7 +37,7 @@
                 "StopTimeColumnName":"epoxy.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "2D Barcode LE",
+                "FullStepName": "5.2D Barcode LE",
                 "ShortStepName": "2d-bc-le",
                 "StepOrder": 5,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_2d-bc-le_2022-06-20_2022-10-20.csv",
@@ -46,7 +46,7 @@
                 "StopTimeColumnName":"2d-bc-le.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "PTM",
+                "FullStepName": "6.PTM",
                 "ShortStepName": "ptm",
                 "StepOrder": 6,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_ptm_2022-06-20_2022-10-20.csv",
@@ -55,7 +55,7 @@
                 "StopTimeColumnName":"ptm.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "Polish QC",
+                "FullStepName": "7.Polish QC",
                 "ShortStepName": "polish",
                 "StepOrder": 7,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_polish-qc_2022-06-20_2022-10-20.csv",
@@ -64,7 +64,7 @@
                 "StopTimeColumnName":"polish-qc.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "CNC 3 QC",
+                "FullStepName": "8.CNC 3 QC",
                 "ShortStepName": "cnc3-qc",
                 "StepOrder": 8,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_cnc3-qc_2022-06-20_2022-10-20.csv",
@@ -73,7 +73,7 @@
                 "StopTimeColumnName":"cnc3-qc.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "Ano",
+                "FullStepName": "9.Ano",
                 "ShortStepName": "ano",
                 "StepOrder": 9,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_ano_2022-06-20_2022-10-20.csv",
@@ -82,7 +82,7 @@
                 "StopTimeColumnName":"ano.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "OLEO",
+                "FullStepName": "10.OLEO",
                 "ShortStepName": "oleo",
                 "StepOrder": 10,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_oleo_2022-06-20_2022-10-20.csv",
@@ -91,7 +91,7 @@
                 "StopTimeColumnName":"oleo.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "Color&Gloss",
+                "FullStepName": "11.Color&Gloss",
                 "ShortStepName": "color",
                 "StepOrder": 11,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_color_2022-06-20_2022-10-20.csv",
@@ -100,7 +100,7 @@
                 "StopTimeColumnName":"color.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "FG Barcode LE",
+                "FullStepName": "12.FG Barcode LE",
                 "ShortStepName": "fg-bc-le",
                 "StepOrder": 12,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_fg-bc-le_2022-06-20_2022-10-20.csv",
@@ -109,7 +109,7 @@
                 "StopTimeColumnName":"fg-bc-le.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "ALT",
+                "FullStepName": "13.ALT",
                 "ShortStepName": "alt",
                 "StepOrder": 13,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_alt_2022-06-20_2022-10-20.csv",
@@ -118,7 +118,7 @@
                 "StopTimeColumnName":"alt.insight.test_attributes.uut_stop"
             },
             {
-                "FullStepName": "FQC",
+                "FullStepName": "14.FQC",
                 "ShortStepName": "fqc",
                 "StepOrder": 14,
                 "FilePath":"demodata/large/LDG_N199_Housing TI_fqc_2022-06-20_2022-10-20.csv",
@@ -128,5 +128,5 @@
             }
         ],
     "StatusColumnName": "result",
-    "TimeInterval":24
+    "TimeInterval":1
 }
